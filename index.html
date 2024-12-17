@@ -6,20 +6,27 @@
     <title>Mars Fun Facts</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background: url('mars_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
         }
 
         .container {
             text-align: center;
-            background: white;
+            background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
         }
 
         button {
@@ -30,10 +37,25 @@
             margin-top: 20px;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         button:hover {
             background-color: #e55330;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        #factDisplay {
+            opacity: 0;
+            animation: fadeIn 2s ease forwards;
         }
     </style>
 </head>
@@ -59,7 +81,12 @@
 
         function showRandomFact() {
             const factIndex = Math.floor(Math.random() * facts.length);
-            document.getElementById('factDisplay').innerText = facts[factIndex];
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.innerText = facts[factIndex];
+                factDisplay.style.opacity = 1;
+            }, 500);
         }
     </script>
 </body>

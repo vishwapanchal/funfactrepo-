@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Fun Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e55330;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mars Fun Facts</h1>
+        <p id="factDisplay">Click the button to learn a fun fact about Mars!</p>
+        <button onclick="showRandomFact()">Get a Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Mars is known as the Red Planet due to its reddish appearance.",
+            "Mars has the tallest volcano in the solar system, Olympus Mons.",
+            "A year on Mars lasts 687 Earth days.",
+            "Mars has two moons, Phobos and Deimos.",
+            "The average temperature on Mars is about -80 degrees Fahrenheit (-62 degrees Celsius).",
+            "Mars has the largest dust storms in the solar system.",
+            "Evidence suggests that Mars once had water on its surface.",
+            "Mars' atmosphere is made mostly of carbon dioxide.",
+            "The gravity on Mars is about 38% of Earth's gravity.",
+            "Mars is home to Valles Marineris, one of the largest canyons in the solar system."
+        ];
+
+        function showRandomFact() {
+            const factIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('factDisplay').innerText = facts[factIndex];
+        }
+    </script>
+</body>
+</html>
